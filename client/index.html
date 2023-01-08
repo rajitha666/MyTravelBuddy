@@ -9,11 +9,74 @@
   </head>
   <body>
     <div id="app">
-      <div id = "chat_contaier"></div> 
-      <form>
-        <textarea name = "prompt" rows = "1" cols = "1" placeholder = "Ask me anything..."></textarea>
-        <button type = "submit"><img src = "assets/send.svg"/></button>
-      </form>
+      <div id = "chat_container">
+        <form>
+          <textarea name = "prompt" rows = "1" cols = "1" placeholder = "Ask me anything..."></textarea>
+          <button type = "submit"><img src = "assets/send.svg"/></button>
+        </form>
+        <form>
+          <label for="traveler-type">Select your traveler type:</label><br>
+          <select id="traveler-type" name="traveler-type">
+            <option value="budget">Budget traveler</option>
+            <option value="luxury">Luxury traveler</option>
+            <option value="adventure">Adventure traveler</option>
+            <option value="cultural">Cultural traveler</option>
+            <option value="solo">Solo traveler</option>
+            <option value="family">Family traveler</option>
+            <option value="business">Business traveler</option>
+          </select>
+          <label for="city">Select a city:</label><br>
+          <select id="city" name="city">
+            <optgroup label="US Cities">
+              <option value="new-york">New York, NY</option>
+              <option value="los-angeles">Los Angeles, CA</option>
+              <option value="chicago">Chicago, IL</option>
+              <option value="houston">Houston, TX</option>
+              <option value="philadelphia">Philadelphia, PA</option>
+              <option value="phoenix">Phoenix, AZ</option>
+              <option value="san-antonio">San Antonio, TX</option>
+              <option value="san-diego">San Diego, CA</option>
+              <option value="dallas">Dallas, TX</option>
+              <option value="san-jose">San Jose, CA</option>
+              <option value="austin">Austin, TX</option>
+              <option value="jacksonville">Jacksonville, FL</option>
+              <option value="fort-worth">Fort Worth, TX</option>
+              <option value="columbus">Columbus, OH</option>
+              <option value="san-francisco">San Francisco, CA</option>
+              <option value="charlotte">Charlotte, NC</option>
+              <option value="indianapolis">Indianapolis, IN</option>
+              <option value="seattle">Seattle, WA</option>
+              <option value="denver">Denver, CO</option>
+              <option value="washington-dc">Washington, D.C.</option>
+              <option value="boston">Boston, MA</option>
+              <option value="nashville">Nashville, TN</option>
+              <option value="el-paso">El Paso, TX</option>
+              <option value="detroit">Detroit, MI</option>
+              <option value="memphis">Memphis, TN</option>
+              <option value="portland">Portland, OR</option>
+              <option value="oklahoma-city">Oklahoma City, OK</option>
+              <option value="las-vegas">Las Vegas, NV</option>
+              <option value="louisville">Louisville, KY</option>
+              <option value="baltimore">Baltimore, MD</option>
+              <option value="milwaukee">Milwaukee, WI</option>
+              <option value="albuquerque">Albuquerque, NM</option>
+              <option value="vancouver">Vancouver, BC</option>
+              <option value="calgary">Calgary, AB</option>
+              <option value="edmonton">Edmonton, AB</option>
+              <option value="regina">Regina, SK</option>
+              <option value="winnipeg">Winnipeg, MB</option>
+              <option value="toronto">Toronto, ON</option>
+              <option value="ottawa">Ottawa, ON</option>
+              <option value="montreal">Montreal, QC</option>
+              <option value="quebec-city">Quebec City, QC</option>
+              <option value="fredericton">Fredericton, NB</option>
+              <option value="halifax">Halifax, NS</option>
+              <option value="st-johns">St. John's, NL</option>
+          <br><br>
+          <textarea name = "prompt" rows = "1" cols = "1" placeholder = "Ask me anything..."></textarea>
+          <button type = "submit"><img src = "assets/send.svg"/></button>
+        </form>
+      </div> 
     </div>
     <script type="module" src="script.js"></script>
   </body>
