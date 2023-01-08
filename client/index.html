@@ -9,74 +9,69 @@
   </head>
   <body>
     <div id="app">
-      <div id = "chat_container">
-        <form>
-          <textarea name = "prompt" rows = "1" cols = "1" placeholder = "Ask me anything..."></textarea>
-          <button type = "submit"><img src = "assets/send.svg"/></button>
-        </form>
-        <form>
-          <label for="traveler-type">Select your traveler type:</label><br>
-          <select id="traveler-type" name="traveler-type">
-            <option value="budget">Budget traveler</option>
-            <option value="luxury">Luxury traveler</option>
-            <option value="adventure">Adventure traveler</option>
-            <option value="cultural">Cultural traveler</option>
-            <option value="solo">Solo traveler</option>
-            <option value="family">Family traveler</option>
-            <option value="business">Business traveler</option>
-          </select>
-          <label for="city">Select a city:</label><br>
-          <select id="city" name="city">
-            <optgroup label="US Cities">
-              <option value="new-york">New York, NY</option>
-              <option value="los-angeles">Los Angeles, CA</option>
-              <option value="chicago">Chicago, IL</option>
-              <option value="houston">Houston, TX</option>
-              <option value="philadelphia">Philadelphia, PA</option>
-              <option value="phoenix">Phoenix, AZ</option>
-              <option value="san-antonio">San Antonio, TX</option>
-              <option value="san-diego">San Diego, CA</option>
-              <option value="dallas">Dallas, TX</option>
-              <option value="san-jose">San Jose, CA</option>
-              <option value="austin">Austin, TX</option>
-              <option value="jacksonville">Jacksonville, FL</option>
-              <option value="fort-worth">Fort Worth, TX</option>
-              <option value="columbus">Columbus, OH</option>
-              <option value="san-francisco">San Francisco, CA</option>
-              <option value="charlotte">Charlotte, NC</option>
-              <option value="indianapolis">Indianapolis, IN</option>
-              <option value="seattle">Seattle, WA</option>
-              <option value="denver">Denver, CO</option>
-              <option value="washington-dc">Washington, D.C.</option>
-              <option value="boston">Boston, MA</option>
-              <option value="nashville">Nashville, TN</option>
-              <option value="el-paso">El Paso, TX</option>
-              <option value="detroit">Detroit, MI</option>
-              <option value="memphis">Memphis, TN</option>
-              <option value="portland">Portland, OR</option>
-              <option value="oklahoma-city">Oklahoma City, OK</option>
-              <option value="las-vegas">Las Vegas, NV</option>
-              <option value="louisville">Louisville, KY</option>
-              <option value="baltimore">Baltimore, MD</option>
-              <option value="milwaukee">Milwaukee, WI</option>
-              <option value="albuquerque">Albuquerque, NM</option>
-              <option value="vancouver">Vancouver, BC</option>
-              <option value="calgary">Calgary, AB</option>
-              <option value="edmonton">Edmonton, AB</option>
-              <option value="regina">Regina, SK</option>
-              <option value="winnipeg">Winnipeg, MB</option>
-              <option value="toronto">Toronto, ON</option>
-              <option value="ottawa">Ottawa, ON</option>
-              <option value="montreal">Montreal, QC</option>
-              <option value="quebec-city">Quebec City, QC</option>
-              <option value="fredericton">Fredericton, NB</option>
-              <option value="halifax">Halifax, NS</option>
-              <option value="st-johns">St. John's, NL</option>
-          <br><br>
-          <textarea name = "prompt" rows = "1" cols = "1" placeholder = "Ask me anything..."></textarea>
-          <button type = "submit"><img src = "assets/send.svg"/></button>
-        </form>
-      </div> 
+      <div id = "chat_contaier"></div> 
+      <form>
+        <label for="traveler-type">I am a:</label><br>
+        <select id="traveler-type" name="traveler-type">
+          <option value="budget">Budget traveler</option>
+          <option value="luxury">Luxury traveler</option>
+          <option value="adventure">Adventure traveler</option>
+          <option value="cultural">Cultural traveler</option>
+          <option value="solo">Solo traveler</option>
+          <option value="family">Family traveler</option>
+          <option value="business">Business traveler</option>
+        </select>
+        <label for="city">Traveling to:</label><br>
+        <select id="city" name="city">
+          <optgroup label="US Cities">
+            <option value="new-york">New York, NY</option>
+            <option value="Los Angeles, CA">Los Angeles, CA</option>
+            <option value="Chicago, IL">Chicago, IL</option>
+            <option value="Houston, TX">Houston, TX</option>
+            <option value="Philadelphia, PA">Philadelphia, PA</option>
+            <option value="Phoenix, AZ">Phoenix, AZ</option>
+            <option value="San Antonio, TX">San Antonio, TX</option>
+            <option value="San Diego, CA">San Diego, CA</option>
+            <option value="Dallas, TX">Dallas, TX</option>
+            <option value="San Jose, CA">San Jose, CA</option>
+            <option value="Austin, TX">Austin, TX</option>
+            <option value="Jacksonville, FL">Jacksonville, FL</option>
+            <option value="Fort Worth, TX">Fort Worth, TX</option>
+            <option value="Columbus, OH">Columbus, OH</option>
+            <option value="San Francisco, CA">San Francisco, CA</option>
+            <option value="Charlotte, NC">Charlotte, NC</option>
+            <option value="Indianapolis, IN">Indianapolis, IN</option>
+            <option value="Seattle, WA">Seattle, WA</option>
+            <option value="Denver, CO">Denver, CO</option>
+            <option value="Washington, D.C.">Washington, D.C.</option>
+            <option value="Boston, MA">Boston, MA</option>
+            <option value="Nashville, TN">Nashville, TN</option>
+            <option value="El Paso, TX">El Paso, TX</option>
+            <option value="Detroit, MI">Detroit, MI</option>
+            <option value="Memphis, TN">Memphis, TN</option>
+            <option value="Portland, OR">Portland, OR</option>
+            <option value="Oklahoma City, OK">Oklahoma City, OK</option>
+            <option value="Las Vegas, NV">Las Vegas, NV</option>
+            <option value="Louisville, KY">Louisville, KY</option>
+            <option value="Baltimore, MD">Baltimore, MD</option>
+            <option value="Milwaukee, WI">Milwaukee, WI</option>
+            <option value="Albuquerque, NM">Albuquerque, NM</option>
+            <option value="Vancouver, BC">Vancouver, BC</option>
+            <option value="Calgary, AB">Calgary, AB</option>
+            <option value="Edmonton, AB">Edmonton, AB</option>
+            <option value="Regina, SK">Regina, SK</option>
+            <option value="Winnipeg, MB">Winnipeg, MB</option>
+            <option value="Toronto, ON">Toronto, ON</option>
+            <option value="Ottawa, ON">Ottawa, ON</option>
+            <option value="Montreal, QC">Montreal, QC</option>
+            <option value="Quebec City, QC">Quebec City, QC</option>
+            <option value="Fredericton, NB">Fredericton, NB</option>
+            <option value="Halifax, NS">Halifax, NS</option>
+            <option value="St. John's, NL">St. John's, NL</option>
+</select>
+        <textarea name = "prompt" rows = "1" cols = "1" placeholder = ""></textarea>
+        <button type = "submit"><img src = "assets/send.svg"/></button>
+      </form>
     </div>
     <script type="module" src="script.js"></script>
   </body>

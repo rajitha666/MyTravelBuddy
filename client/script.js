@@ -57,7 +57,14 @@ function chatStripe (isAi, value, uniqueId){
 
 const handleSubmit = async (e) => {
   e.preventDefault();
+
+  const travelerType = document.querySelector("#traveler-type").value;
+  const city = document.querySelector("#city").value;
   const data = new FormData(form);
+  const promptText = `I am a ${travelerType} traveler, planning a trip to ${city}. ${data.get("prompt")} give me 5 options to explore around and 5 food options to try`;
+  
+
+  data.set("prompt", promptText);
 
   //user's chatstripe
   chatContainer.innerHTML += chatStripe(false,data.get('prompt'));
@@ -73,6 +80,8 @@ const handleSubmit = async (e) => {
 
   loader(messageDiv);
   //fetch data from server -> bot's response
+//http://localhost:5000
+//https://mytravelbuddy.onrender.com/
 
   const response = await fetch('https://mytravelbuddy.onrender.com/',{
     method:'POST',
@@ -106,3 +115,4 @@ form.addEventListener('keyup', (e) => {
       handleSubmit(e);
     }
 })
+
