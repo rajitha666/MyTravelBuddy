@@ -17,6 +17,7 @@ const handleSubmit = async (event) => {
 
   // Send data to server
   // Replace http://localhost:5000 with the URL of your server
+  //https://mytravelbuddy.onrender.com/
   const response = await fetch("https://mytravelbuddy.onrender.com/", {
     method: "POST",
     headers: {
