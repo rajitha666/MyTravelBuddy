@@ -1,118 +1,39 @@
-import bot from './assets/bot.svg';
-import user from './assets/user.svg';
+const form = document.querySelector("form");
+const resultsText = document.querySelector("#results-text");
 
-
-const form = document.querySelector('form');
-const chatContainer = document.querySelector('#chat_contaier');
-
-let loadInterval;
-
-function loader(element)
-{
-  element.textContent = '';
-loadInterval = setInterval (() => {
-  element.textContent += '.';
-  if (element.textContent === '....'){
-    element.textContent = '';
-  }
-}, 300 )
-
-}
-function typeText (element,text){
-  let index = 0;
-  let interval  = setInterval(()=> {
-    if(index < text.length){
-      element.innerHTML += text.charAt(index);
-      index++;
-    }else{
-      clearInterval(interval);
-    }
-  },20)
-}
-
-function generateUniqueId(){
-  const timestamp = Date.now();
-  const randomNumber = Math.random();
-  const hexDecimalString = randomNumber.toString(16);
-
-  return `id-${timestamp}-${hexDecimalString}`;
-}
-
-function chatStripe (isAi, value, uniqueId){
-  return (
-    `
-    <div class = "wrapper ${isAi && 'ai'}">
-      <div class = "chat">
-       <div class = "profile">
-        <img
-          src = "${isAi ? bot : user}"
-          alt="${isAi ? 'bot' : 'user'}"
-        />
-        </div>
-        <div class =  "message" id = ${uniqueId}>${value}</div>
-      </div>
-    `
-  )
-}
-
-const handleSubmit = async (e) => {
-  e.preventDefault();
+const handleSubmit = async (event) => {
+  event.preventDefault();
 
   const travelerType = document.querySelector("#traveler-type").value;
   const city = document.querySelector("#city").value;
   const data = new FormData(form);
-  const promptText = `I am a ${travelerType} traveler, planning a trip to ${city}. ${data.get("prompt")} give me 5 options to explore around and 5 food options to try`;
-  
+  const promptText = `I am a ${travelerType} traveler, planning a trip to ${city}. ${data.get(
+    "prompt"
+  )} give me 5 options to explore around and 5 food options to try`;
 
   data.set("prompt", promptText);
 
-  //user's chatstripe
-  chatContainer.innerHTML += chatStripe(false,data.get('prompt'));
-  form.reset();
+  resultsText.innerHTML = "Loading...";
 
-  //bot's chatstripe
-  const uniqueId  = generateUniqueId();
-  chatContainer.innerHTML += chatStripe(true, " ",uniqueId);
+  // Send data to server
+  // Replace http://localhost:5000 with the URL of your server
+  const response = await fetch("https://mytravelbuddy.onrender.com/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      prompt: data.get("prompt"),
+    }),
+  });
 
-  chatContainer.scrollTop = chatContainer.scrollHeight;
+  if (response.ok) {
+    const data = await response.json();
+    resultsText.innerHTML = data.bot;
+  } else {
+    const error = await response.text();
+    resultsText.innerHTML = `Oops... something went wrong. ${error}`;
+  }
+};
 
-  const messageDiv = document.getElementById(uniqueId);
-
-  loader(messageDiv);
-  //fetch data from server -> bot's response
-//http://localhost:5000
-//https://mytravelbuddy.onrender.com/
-
-  const response = await fetch('https://mytravelbuddy.onrender.com/',{
-    method:'POST',
-    headers:{
-      'Content-type' : 'application/json'
-    },body:JSON.stringify({
-      prompt: data.get('prompt')
-    })
-  })
-
-clearInterval(loadInterval);
-messageDiv.innerHTML = '';
-
-if(response.ok){
-  const data = await response.json();
-  const parseData = data.bot.trim();
-
-  typeText(messageDiv,parseData);
-
-}else{
-  const err = await response.text();
-  messageDiv.innerHTML = "Oops... Something went wrong"
-  alert(err);
-}
-
-}
-
-form.addEventListener('submit',handleSubmit);
-form.addEventListener('keyup', (e) => {
-    if(e.keyCode === 13){
-      handleSubmit(e);
-    }
-})
-
+form.addEventListener("submit", handleSubmit);
